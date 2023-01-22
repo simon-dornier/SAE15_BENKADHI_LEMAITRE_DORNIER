@@ -1,0 +1,116 @@
+
+import numpy as np 
+import matplotlib.pyplot as plt
+
+parkings=['FR_MTP_ANTI','FR_MTP_COME','FR_MTP_CORU','FR_MTP_EURO','FR_MTP_SABL','FR_MTP_FOCH','FR_MTP_GARE','FR_MTP_TRIA','FR_MTP_ARCT','FR_MTP_PITO','FR_MTP_CIRC','FR_MTP_SABI','FR_MTP_GARC','FR_MTP_MOSS','FR_STJ_SJLC','FR_MTP_MEDC','FR_MTP_OCCI','FR_MTP_GA109','FR_MTP_GA250','FR_CAS_CDGA','FR_MTP_POLY']
+
+"""#--------Moyenne parking entre 16h et 17h--------
+
+moyenne1617 = [158.5, 174.0, 279.5, 450.25, 289.25, 298.25, 321.0, 296.5, 165.0, 444.5, 585.0, 183.5, 284.0, 349.25, 18.0, 205.25, 503.25, 99.0, 216.0, 253.25, 1638.25]
+
+#Initialise les barres de l'histogramme.
+barWidth = 0.4
+#Initialise la longueur de l'axe des abscisses.
+y1 = [158.5, 174.0, 279.5, 450.25, 289.25, 298.25, 321.0, 296.5, 165.0, 444.5, 585.0, 183.5, 284.0, 349.25, 18.0, 205.25, 503.25, 99.0, 216.0, 253.25, 1638.25]
+#Initialise la longuer de l'axe des ordonnées en fonction de l'axe des absisses.
+r1 = range(len(y1))
+
+
+
+plt.bar(r1, y1, width = barWidth, color = ['blue' for i in y1],
+           edgecolor = ['blue' for i in y1], linewidth = 5)   #Permet de choisir la couleur intérieur et extérieur de chaque barre de l'histogramme.
+                                                              #et la largeur des barres.
+plt.xticks([r + barWidth / 2 for r in range(len(y1))],['FR_MTP_ANTI','FR_MTP_COME','FR_MTP_CORU','FR_MTP_EURO','FR_MTP_SABL','FR_MTP_FOCH','FR_MTP_GARE','FR_MTP_TRIA','FR_MTP_ARCT','FR_MTP_PITO','FR_MTP_CIRC','FR_MTP_SABI','FR_MTP_GARC','FR_MTP_MOSS','FR_STJ_SJLC','FR_MTP_MEDC','FR_MTP_OCCI','FR_MTP_GA109','FR_MTP_GA250','FR_CAS_CDGA','FR_MTP_POLY'],rotation=90, fontsize = 8.5 ) # Permet de mettre les noms de la liste sur l'axe des absicces, en choissant l'orientation et la police des écritures.
+
+plt.title('Moyenne des places disponibles entre 16h-17h pour chaque parking') #Permet de mettre un titre sur le graphique.
+plt.show()  #Affiche le graphique.
+
+#Moyenne parking entre 12h et 13h
+"""
+
+"""moyenne1213= [145.5, 174.0, 279.0, 461.0, 288.0, 261.5, 321.0, 278.5, 141.5, 427.0, 585.0, 216.0, 286.0, 206.0, 18.0, 206.0, 498.5, 99.0, 216.0, 256.5, 1668.0]
+
+
+barWidth = 0.4
+y1 = [145.5, 174.0, 279.0, 461.0, 288.0, 261.5, 321.0, 278.5, 141.5, 427.0, 585.0, 216.0, 286.0, 206.0, 18.0, 206.0, 498.5, 99.0, 216.0, 256.5, 1668.0]
+r1 = range(len(y1))
+
+
+
+plt.bar(r1, y1, width = barWidth, color = ['blue' for i in y1],
+           edgecolor = ['blue' for i in y1], linewidth = 5)   
+plt.xticks([r + barWidth / 2 for r in range(len(y1))],[f'FR_MTP_ANTI','FR_MTP_COME','FR_MTP_CORU','FR_MTP_EURO','FR_MTP_SABL','FR_MTP_FOCH','FR_MTP_GARE','FR_MTP_TRIA','FR_MTP_ARCT','FR_MTP_PITO','FR_MTP_CIRC','FR_MTP_SABI','FR_MTP_GARC','FR_MTP_MOSS','FR_STJ_SJLC','FR_MTP_MEDC','FR_MTP_OCCI','FR_MTP_GA109','FR_MTP_GA250','FR_CAS_CDGA','FR_MTP_POLY'],rotation=90, fontsize = 8.5 ) 
+
+plt.title('Moyenne des places disponibles entre 12h et 13h pour chaque parking') 
+plt.show()
+"""
+
+#Moyenne parking entre 23h et 00H
+"""
+moyenne2300 = [144.1, 174.0, 146.22, 468.6, 283.2, 79.5, 321.0, 178.1, 83.3, 328.3, 585.0, 247.9, 286.9, 331.3, 18.0, 205.78, 499.0, 99.0, 216.0, 253.33, 1406.89]
+
+barWidth = 0.4
+y1 = [144.1, 174.0, 146.22, 468.6, 283.2, 79.5, 321.0, 178.1, 83.3, 328.3, 585.0, 247.9, 286.9, 331.3, 18.0, 205.78, 499.0, 99.0, 216.0, 253.33, 1406.89]
+r1 = range(len(y1))
+
+
+
+plt.bar(r1, y1, width = barWidth, color = ['blue' for i in y1],
+           edgecolor = ['blue' for i in y1], linewidth = 5)   
+plt.xticks([r + barWidth / 2 for r in range(len(y1))],[f'FR_MTP_ANTI','FR_MTP_COME','FR_MTP_CORU','FR_MTP_EURO','FR_MTP_SABL','FR_MTP_FOCH','FR_MTP_GARE','FR_MTP_TRIA','FR_MTP_ARCT','FR_MTP_PITO','FR_MTP_CIRC','FR_MTP_SABI','FR_MTP_GARC','FR_MTP_MOSS','FR_STJ_SJLC','FR_MTP_MEDC','FR_MTP_OCCI','FR_MTP_GA109','FR_MTP_GA250','FR_CAS_CDGA','FR_MTP_POLY'],rotation=90, fontsize = 8.5 ) 
+
+plt.title('Moyenne des places disponibles entre 23h et 00H pour chaque parking') 
+plt.show()"""
+
+
+
+#Ecart-Type parking etre 12h et 13h.
+
+
+"""ecarttype= [0.5, 0.0, 0.0, 1.0, 0.0, 1.5, 0.0, 0.5, 4.5, 0.0, 0.0, 5.0, 1.0, 10.0, 0.0, 0.0, 0.5, 0.0, 0.0, 0.5, 3.0]
+barWidth = 0.4
+y1 = [0.5, 0.0, 0.0, 1.0, 0.0, 1.5, 0.0, 0.5, 4.5, 0.0, 0.0, 5.0, 1.0, 10.0, 0.0, 0.0, 0.5, 0.0, 0.0, 0.5, 3.0]
+r1 = range(len(y1))
+
+
+
+plt.bar(r1, y1, width = barWidth, color = ['blue' for i in y1],
+           edgecolor = ['blue' for i in y1], linewidth = 5)   
+plt.xticks([r + barWidth / 2 for r in range(len(y1))],[f'FR_MTP_ANTI','FR_MTP_COME','FR_MTP_CORU','FR_MTP_EURO','FR_MTP_SABL','FR_MTP_FOCH','FR_MTP_GARE','FR_MTP_TRIA','FR_MTP_ARCT','FR_MTP_PITO','FR_MTP_CIRC','FR_MTP_SABI','FR_MTP_GARC','FR_MTP_MOSS','FR_STJ_SJLC','FR_MTP_MEDC','FR_MTP_OCCI','FR_MTP_GA109','FR_MTP_GA250','FR_CAS_CDGA','FR_MTP_POLY'],rotation=90, fontsize = 8.5 ) 
+
+plt.title('Ecart type pour chaque parking entre 12H et 13h') 
+plt.show()"""
+
+
+#Ecart type parking entre 16H et 17h
+
+
+"""ecarttype= [0.5, 0.0, 0.5, 2.3, 6.2, 2.2, 0.0, 1.8, 1.4, 1.1, 0.0, 8.4, 0.0, 0.4, 0.0, 0.4, 1.5, 0.0, 0.0, 0.4, 5.7]
+barWidth = 0.4
+y1 = [0.5, 0.0, 0.5, 2.3, 6.2, 2.2, 0.0, 1.8, 1.4, 1.1, 0.0, 8.4, 0.0, 0.4, 0.0, 0.4, 1.5, 0.0, 0.0, 0.4, 5.7]
+r1 = range(len(y1))
+
+
+
+plt.bar(r1, y1, width = barWidth, color = ['blue' for i in y1],
+           edgecolor = ['blue' for i in y1], linewidth = 5)   
+plt.xticks([r + barWidth / 2 for r in range(len(y1))],[f'FR_MTP_ANTI','FR_MTP_COME','FR_MTP_CORU','FR_MTP_EURO','FR_MTP_SABL','FR_MTP_FOCH','FR_MTP_GARE','FR_MTP_TRIA','FR_MTP_ARCT','FR_MTP_PITO','FR_MTP_CIRC','FR_MTP_SABI','FR_MTP_GARC','FR_MTP_MOSS','FR_STJ_SJLC','FR_MTP_MEDC','FR_MTP_OCCI','FR_MTP_GA109','FR_MTP_GA250','FR_CAS_CDGA','FR_MTP_POLY'],rotation=90, fontsize = 8.5 ) 
+
+plt.title('Ecart type pour chaque parking entre 16h et 17h') 
+plt.show()"""
+
+#Ecart type parking entre 23h et 00H
+
+ecarttype= [5.2, 0.0, 24.8, 1.2, 1.9, 31.9, 0.0, 15.2, 9.0, 14.3, 0.0, 2.9, 1.4, 2.7, 0.0, 0.6, 4.1, 0.0, 0.0, 0.5, 62.9]
+barWidth = 0.4
+y1 = [5.2, 0.0, 24.8, 1.2, 1.9, 31.9, 0.0, 15.2, 9.0, 14.3, 0.0, 2.9, 1.4, 2.7, 0.0, 0.6, 4.1, 0.0, 0.0, 0.5, 62.9]
+r1 = range(len(y1))
+
+
+
+plt.bar(r1, y1, width = barWidth, color = ['blue' for i in y1],
+           edgecolor = ['blue' for i in y1], linewidth = 5)   
+plt.xticks([r + barWidth / 2 for r in range(len(y1))],[f'FR_MTP_ANTI','FR_MTP_COME','FR_MTP_CORU','FR_MTP_EURO','FR_MTP_SABL','FR_MTP_FOCH','FR_MTP_GARE','FR_MTP_TRIA','FR_MTP_ARCT','FR_MTP_PITO','FR_MTP_CIRC','FR_MTP_SABI','FR_MTP_GARC','FR_MTP_MOSS','FR_STJ_SJLC','FR_MTP_MEDC','FR_MTP_OCCI','FR_MTP_GA109','FR_MTP_GA250','FR_CAS_CDGA','FR_MTP_POLY'],rotation=90, fontsize = 8.5 ) 
+
+plt.title('Ecart type pour chaque parking entre 23h et 00H') 
+plt.show()
