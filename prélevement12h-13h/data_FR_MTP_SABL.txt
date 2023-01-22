@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?> 
+<park>
+	<DateTime>2023-01-22T12:24:58</DateTime>
+	<Name>SABL</Name>
+	<Status>Open</Status>
+	<Free>0288</Free>
+	<Total>0372</Total>
+</park>

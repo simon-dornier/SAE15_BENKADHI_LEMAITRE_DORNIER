@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?> 
+<park>
+	<DateTime>2023-01-22T12:24:52</DateTime>
+	<Name>SJLC</Name>
+	<Status>Full</Status>
+	<Free>0018</Free>
+	<Total>0290</Total>
+</park>
