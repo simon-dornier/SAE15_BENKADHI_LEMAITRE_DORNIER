@@ -1,0 +1,154 @@
+########################################################################################################################################################
+#Importation de toutes les librairies nécessaires.
+########################################################################################################################################################
+
+import requests
+import json
+import time
+from datetime import datetime
+import pandas as pd
+import csv
+import os
+from math import sqrt
+import matplotlib as plt
+from algo_stat import *
+
+demande1= int(input("temps entre chaque requête (en secondes) ? \n"))
+demande2= int(input("temps pendant que vous voulez récupérer des fichiers (en secondes) ? \n"))
+
+os.system("clear")
+temps_mtn = time.time()
+temps_choisi = 0
+
+########################################################################################################################################################
+# #Création de toutes les variables et listes que nous allons utiliser dans la fonction.
+########################################################################################################################################################
+
+def velo():
+    compteur = 1
+    temp = 0
+    nom = []
+    station_id = []
+    dispo_velo =[]
+    dispo_borne = []
+    temps_voulu = demande1
+    temps_total = demande2
+    temps = [0]
+    temps_liste = 0
+    temps_actuel = 0
+    temps_ref = time.time()
+    moyenne1 = 0
+    moyenne_liste = []
+    min = 0
+    sigma = 0
+    capacite = []
+
+########################################################################################################################################################
+#Commencement de la boucle pour récupérer les données des URL et les stocker dans des listes.
+########################################################################################################################################################
+
+    while temps_ref + temps_total > temps_actuel :  #Fais tourner une boucle à l'infini jusqu'a que la variable temps_actuel devienne supérieur.
+
+            requete1 = requests.get("https://montpellier-fr-smoove.klervi.net/gbfs/en/station_information.json")
+            data1 = requete1.json()
+            requete2 = requests.get("https://montpellier-fr-smoove.klervi.net/gbfs/en/station_status.json")
+            data2 = requete2.json()
+
+            for i in data1["data"]["stations"]:
+                station_id.append(i["station_id"])
+                capacite.append(i["capacity"])
+                nom.append(i["name"])
+            for x in data2["data"]["stations"]:
+                dispo_velo.append(x["num_bikes_available"])
+                dispo_borne.append(x["num_docks_available"])
+                f1 = open(f"parking_velo_{compteur}.txt","w",encoding="utf8")
+                f1.write(str(dispo_borne[compteur-1]))
+                f1.close()
+                compteur += 1
+
+    
+
+########################################################################################################################################################
+#Calcul de la moyenne.
+########################################################################################################################################################
+
+
+            m = moyenne(dispo_borne)
+            moyenne_liste.append(m)
+            f1= open("moyenne_velo","w",encoding="utf8")
+            f1.write(str(moyenne_liste))
+            f1.close()
+
+
+            temps_actuel = time.time()
+
+            time.sleep(temps_voulu)
+
+            moyenne1 = 0
+            print("liste des bornes:",dispo_borne)
+            dispo_borne = []
+
+
+            for i in range(len(moyenne_liste)-1):
+                temps_liste+=temps_voulu
+                temps.append(temps_liste)
+            min = moyenne_liste[0]
+            max = moyenne_liste[0]
+
+            for i in moyenne_liste:
+                moyenne1 += i
+            moyenne1 = moyenne1//len(moyenne_liste)
+
+
+########################################################################################################################################################
+#Calcul écart type.
+########################################################################################################################################################
+
+
+            sigma = 0
+
+            for i in moyenne_liste:
+                sigma += (i - moyenne1)**2
+            sigma = sqrt(sigma)//len(moyenne_liste)
+            print("écart type :",sigma)
+velo()
+
+
+########################################################################################################################################################
+#Récupération d'une donnée particluière dans les fichiers enregistrés.
+########################################################################################################################################################
+
+def recuperation():
+        os.chdir(os.getcwd()+"/txt/")
+        
+        compteur = 0
+        index = 0
+        compteur_temps = 0
+
+        fichier = os.listdir()
+        donnee = [""]
+        
+########################################################################################################################################################
+#Création d'une boucle qui va parcourir tout les fichiers enregistrés et en parcourant les fichiers, "trier" les données des fichiers pour ne garder que ceux que l'on veut à l'index indiqué.
+########################################################################################################################################################
+
+        for i in fichier:
+            f1=open(str(i),"r", encoding="utf-8")
+            h = 0
+            for i in f1.read():       
+                if index == 1 and i != ',' and h > 0:
+                    donnee[0]= donnee[0] + i
+                    compteur_temps = compteur
+                if i == "\n" and len(donnee) != 2:
+                    h = 1
+                    donnee[0]=""
+                    compteur = 0
+                if i == ",":
+                    index = 0
+                    compteur += 1
+                    if donnee[0] != "" :
+                        print(str(donnee))
+                    if compteur == 4 or compteur == 3:
+                        index = 1
+            f1.close()
+recuperation()
